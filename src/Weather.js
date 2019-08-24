@@ -11,6 +11,10 @@ class Weather extends Component {
   componentDidMount() {
     console.log("componentDidMount", this.state.city);
 
+    this.setState({
+      city: "update"
+    })
+
     // console.log(this.state.city);
 
     // const url = `https://api.openweathermap.org/data/2.5/forecast?q=London&APPID=885c24dac664de0bc9186f32747cf51a`;
@@ -49,6 +53,8 @@ class Weather extends Component {
       [e.target.name]: e.target.value
     });
 
+    console.log('handleChange')
+
     let city = e.target.name;
     // city = "Toronto";
 
@@ -67,6 +73,7 @@ class Weather extends Component {
   };
 
   render() {
+    console.log('render')
     return (
       <div>
         Weather: {this.state.city}
