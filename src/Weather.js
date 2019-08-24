@@ -48,6 +48,10 @@ class Weather extends Component {
     //   });
   }
 
+  componentDidUpdate() {
+    console.log('componentDidUpdate')
+  }
+
   handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value
