@@ -6,6 +6,8 @@ class Weather extends Component {
     this.state = {
       city: ""
     };
+
+    this.closeMenu = this.closeMenu.bind(this);
   }
 
   componentDidMount() {
@@ -13,43 +15,13 @@ class Weather extends Component {
 
     this.setState({
       city: "update"
-    })
+    });
 
-    // console.log(this.state.city);
-
-    // const url = `https://api.openweathermap.org/data/2.5/forecast?q=London&APPID=885c24dac664de0bc9186f32747cf51a`;
-
-    // const city = this.state.city;
-
-    // const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=885c24dac664de0bc9186f32747cf51a`;
-
-    // https://api.openweathermap.org/data/2.5/forecast?q=London&APPID=885c24dac664de0bc9186f32747cf51a
-
-    // .then(data => {
-    //     let result = [];
-    //     let res_currency;
-    //     let res_rate;
-    //     for (let currencyCode in data.rates) {
-    //       result.push([currencyCode, data.rates[currencyCode]]);
-
-    //       if (currencyCode.toUpperCase() === "CAD") {
-    //         res_currency = currencyCode.toUpperCase();
-    //         res_rate = data.rates[currencyCode];
-    //       }
-    //     }
-
-    // fetch(url)
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     let result = [];
-
-    //     console.log(data);
-
-    //   });
+    document.addEventListener("click", this.closeMenu);
   }
 
   componentDidUpdate() {
-    console.log('componentDidUpdate')
+    console.log("componentDidUpdate");
   }
 
   handleChange = e => {
@@ -57,7 +29,7 @@ class Weather extends Component {
       [e.target.name]: e.target.value
     });
 
-    console.log('handleChange')
+    console.log("handleChange");
 
     let city = e.target.name;
     // city = "Toronto";
@@ -76,8 +48,18 @@ class Weather extends Component {
       });
   };
 
+  closeMenu() {
+    console.log("closeMenu");
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("click", this.closeMenu);
+    console.log("componentWillUnmount");
+    // clearInterval(this.timerID);
+  }
+
   render() {
-    console.log('render')
+    console.log("render");
     return (
       <div>
         Weather: {this.state.city}
@@ -87,6 +69,13 @@ class Weather extends Component {
           value={this.state.city}
           name="city"
         />
+        <a
+          href="javascript:void(0)"
+          className="closebtn"
+          onClick={this.closeMenu}
+        >
+          ×
+        </a>
       </div>
     );
   }
