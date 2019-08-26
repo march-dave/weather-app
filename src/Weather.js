@@ -34,22 +34,27 @@ class Weather extends Component {
     let city = e.target.name;
     // city = "Toronto";
 
-    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=885c24dac664de0bc9186f32747cf51a`;
+    // const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=885c24dac664de0bc9186f32747cf51a`;
 
-    fetch(url)
-      .then(res => res.json())
-      .then(data => {
-        let result = [];
-        let res_city;
+    // fetch(url)
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     let result = [];
+    //     let res_city;
 
-        console.log(data.city.name);
+    //     console.log(data.city.name);
 
-        console.log(data);
-      });
+    //     console.log(data);
+    //   });
+  };
+
+  handleSubmit = (e) => {
+    console.log("handle Submit1111");
+    e.preventDefault();
   };
 
   closeMenu() {
-    console.log("closeMenu");
+    // console.log("closeMenu");
   }
 
   componentWillUnmount() {
@@ -64,18 +69,14 @@ class Weather extends Component {
       <div>
         Weather: {this.state.city}
         {/* <input onClick={this.handleChange} value={this.state.text} /> */}
-        <input
-          onChange={this.handleChange}
-          value={this.state.city}
-          name="city"
-        />
-        <a
-          href="javascript:void(0)"
-          className="closebtn"
-          onClick={this.closeMenu}
-        >
-          ×
-        </a>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            onChange={this.handleChange}
+            value={this.state.city}
+            name="city"
+          />
+          <button>Submit</button>
+        </form>
       </div>
     );
   }
