@@ -39,18 +39,18 @@ class Weather extends Component {
     let {city} = this.state;
     console.log("city", city);
 
-    // const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=885c24dac664de0bc9186f32747cf51a`;
+    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=885c24dac664de0bc9186f32747cf51a`;
 
-    // fetch(url)
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     let result = [];
-    //     let res_city;
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        let result = [];
+        let res_city;
 
-    //     console.log(data.city.name);
+        console.log(data.city.name);
 
-    //     console.log(data);
-    //   });
+        console.log(data);
+      });
 
     e.preventDefault();
   };
