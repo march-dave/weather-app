@@ -33,6 +33,11 @@ class Weather extends Component {
 
     let city = e.target.name;
     // city = "Toronto";
+  };
+
+  handleSubmit = (e) => {
+    let {city} = this.state;
+    console.log("city", city);
 
     // const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=885c24dac664de0bc9186f32747cf51a`;
 
@@ -46,10 +51,7 @@ class Weather extends Component {
 
     //     console.log(data);
     //   });
-  };
 
-  handleSubmit = (e) => {
-    console.log("handle Submit1111");
     e.preventDefault();
   };
 
