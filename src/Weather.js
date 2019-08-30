@@ -48,7 +48,7 @@ class Weather extends Component {
         let res_city;
 
         // console.log(data.city.name);
-        // console.log(data);
+        console.log(data);
       });
 
     e.preventDefault();
