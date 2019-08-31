@@ -41,14 +41,16 @@ class Weather extends Component {
 
     const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=885c24dac664de0bc9186f32747cf51a`;
 
+    console.log('url')
+
     fetch(url)
       .then(res => res.json())
       .then(data => {
         let result = [];
         let res_city;
 
-        // console.log(data.city.name);
-        console.log(data);
+        console.log(data.city.name);
+        // console.log(data);
       });
 
     e.preventDefault();
